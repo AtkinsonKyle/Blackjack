@@ -6,6 +6,11 @@ An interactive game of blackjack
 + Kyle Atikson
 + Scott Falbo
 
-![](./images/wireframe-01.jpg)
+![land-page](./images/wireframe-03.jpg)
 
-![](./images/wireframe-02.jpg)
+![game-screen](./images/wireframe-02.jpg)
+
+![about-me](./images/wireframe-01.jpg)
+
+
+
