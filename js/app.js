@@ -2,12 +2,15 @@
 
 //global variables
 var deckArray = [];
+var bet = 5;
 
 //get elements from DOM
-var playerButtons = document.getElementById('playerbuttons');
+// var playerButtons = document.getElementById('playerbuttons');
+var hitButton = document.getElementById('hit');
+var stayButton = document.getElementById('stay');
+var betButton = document.getElementById('bet');
 var playerCards = document.getElementById('playerhand');
 var dealerCards = document.getElementById('dealerhand');
-var tempBank = document.getElementById('temp-bank');
 
 // deck constructor
 function DeckMaker(cardId, suit, value){
@@ -44,7 +47,6 @@ for (var i = 0; i < deckArray.length; i++){
   }
 }
 
-
 // player object. name, bank, hand
 var player = {
   name: 'name',
@@ -56,6 +58,10 @@ var dealer = {
   handArray: [],
   handTotal: 0
 };
+
+// temp stuff to show bank roll
+var tempBank = document.getElementById('temp-bank');
+tempBank.innerHTML = player.bankroll;
 
 // randomize function
 function randomNumber(){
@@ -95,38 +101,100 @@ function initialDeal(bet){
   // console.log(dealer.handTotal);
 }
 
-
-// player turn, hit, stay.  Conditional to add up hand total
-// if bust lose money, next hand
-// if stay dealer turn
-function playerInput(event){
-  if (event.target.id === 'hit'){
-    if (player.handTotal < 21){
-      getCard(player, playerCards);
-    } else {
-      //bust
-    }
-    // if 21 announce bust and break
-  } else if (event.target.id === 'stay'){
-    playerButtons.removeEventListener('click', playerInput);
-    if (dealer.handTotal > 16){
-      // do nothing, stay
-    } else {
-      getCard(dealer, dealerCards);
-    }
-    // console.log('stay');
-    // move onto dealer turn
-  } else if (event.target.id === 'bet'){
-    initialDeal(5);
-    // console.log('bet');
+// if player hits
+function playerHit(event){
+  if (player.handTotal < 21){
+    getCard(player, playerCards);
   }
-  console.log(`dealer total: ${dealer.handTotal}`);
-  console.log(`player total: ${player.handTotal}`);
-  tempBank.innerHTML = player.bankroll;
+  if (player.handTotal > 21){
+    //bust
+    calcTotals();
+  }
+}
+// if player stays
+function playerStay(event){
+  hitButton.removeEventListener('click', playerHit);
+  stayButton.removeEventListener('click', playerStay);
+  // dealer turn
+  while (dealer.handTotal < 17){
+    getCard(dealer, dealerCards);
+  }
+  calcTotals();
+}
+
+// player bet, initial bet is hard wired at 5 until
+function playerBet(event){
+  betButton.removeEventListener('click', playerBet);
+  initialDeal(bet);
+}
+
+// call this function after all the stuff happens to calculate winner and new bank roll
+function calcTotals(){
+  console.log(`dealer total ${dealer.handTotal}, player total ${player.handTotal}`);
+  if (player.handTotal > 21){
+    //bust  next turn
+  } else (player.handTotal === 21){
+    player.bankroll += bet*3.5;
+    // next turn
+  } 
+}
+
+
+function nextTurn(){
+
 }
 
 
 
+
+
+hitButton.addEventListener('click', playerHit);
+stayButton.addEventListener('click', playerStay);
+betButton.addEventListener('click', playerBet);
+
+// player turn, hit, stay.  Conditional to add up hand total
+// if bust lose money, next hand
+// if stay dealer turn
+// function playerInput(event){
+//   if (event.target.id === 'hit'){
+//     if (player.handTotal < 21){
+//       getCard(player, playerCards);
+//       if (player.handTotal > 21){
+//         calcTotals();
+//       }
+//     }
+//   } else if (event.target.id === 'stay'){
+//     dealerTurn();
+//   } else if (event.target.id === 'bet'){
+//     initialDeal(bet);
+//   }
+//   console.log(`dealer total: ${dealer.handTotal}`);
+//   console.log(`player total: ${player.handTotal}`);
+//   tempBank.innerHTML = player.bankroll;
+// }
+
+// function dealerTurn(){
+//   playerButtons.removeEventListener('click', playerInput);
+//   while (dealer.handTotal < 17){
+//     getCard(dealer, dealerCards);
+//   }
+//   calcTotals();
+// }
+
+
+// function calcTotals(){
+//   console.log('hello total function');
+//   if (dealer.handTotal > 21 || (player.handTotal > dealer.handTotal && player.handTotal < 21)){
+//     console.log('player winner');
+//     if (player.handTotal === 21){
+//       player.bankRoll += (bet*3.5);
+//     } else {
+//       console.log(`the bet${bet} ... bank roll ${player.bankroll}`);
+//       player.bankRoll += (bet*2);
+//     }
+//   }
+// initialDeal(bet);
+// }
 // dealer turn,
 //If 21 next turn
 // if < 17 hit,
@@ -136,4 +204,3 @@ function playerInput(event){
 
 //event listeners
 
-playerButtons.addEventListener('click', playerInput);
