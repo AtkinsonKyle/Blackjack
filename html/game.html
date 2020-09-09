@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blackjack</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Card Games: Blackjack</title>
+  <link rel="stylesheet" href="./../css/reset.css" type="text/css">
+  <link rel="stylesheet" href="./../css/game.css" type="text/css">
 </head>
+
 <body>
   <header>
-    <h1>Blackjack</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html"></a>Home Page</li>
-        <li><a href="html/rules.html"></a>Rules Page</li>
-        <li><a href="html/bank.html"></a>Bank Page</li>
-        <li><a href="html/game.html"></a>Game Page</li>
-        <li><a href="html/about-us.html"></a>About the Team</li>
-      </ul>
-    </nav>
+    <h1><a href="#">blackjack</a></h1>
   </header>
-  
-  <footer>
-    &copy; Felicia, Scott, Chase, Kyle
-  </footer>
+  <main>
+    <section>
+      <section id="dealerhand" class="cardzone">
+        <!-- append from js -->
+      </section>
+      <section id="playerhand" class="cardzone">
+        <!--  append from js -->
+      </section>
+      <section id="playerbuttons">
+        <div id="bet" class="button">bet</div>
+        <div id="hit" class="button">hit</div>
+        <div id="stay" class="button">stay</div>
+      </section>
+    </section>
+    <div id="temp-bank"></div>
+  </main>
+  <footer></footer>
+  <script src="./../js/app.js"></script>
+</body>
+
+</html>
