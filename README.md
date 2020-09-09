@@ -3,7 +3,7 @@ An interactive game of blackjack
 
 + Felicia Walcott
 + Chase McFaddin
-+ Kyle Atikson
++ Kyle Atkinson
 + Scott Falbo
 
 ![land-page](./images/wireframe-03.jpg)
