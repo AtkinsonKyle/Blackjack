@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #678660;
+  text-align: center;
+}
+
+header {
+  width: 800px;
+  margin: 15px auto;
+  border-radius: 15px;
+  background: #BFD1BB;
+}
+header > h1 {
+  width: 400px;
+  margin: 10px auto;
+  font-size: 40px;
+}
+header li {
+  display: inline-block;
+  margin: 5px 25px;
+}
+header a {
+  font-variant: small-caps;
+  font-size: 30px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #540A0A;
+}
+
+
+
+main {
+  background: #BFD1BB;
+  width: 900px;
+  margin: 15px auto;
+  height: 680px;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.cardzone {
+  background: #678660;
+  width: 760px;
+  height: 200px;
+  margin: 20px auto;
+}
+.cardzone div {
+  display: inline-block;
+  width: 120px;
+  height: 150px;
+  background: white;
+  border-radius: 10px;
+  margin: 20px;
+  line-height: 150px;
+}
+.button {
+  width: 100px;
+  height: 60px;
+  border: 1px solid black;
+  display: inline-block;
+  line-height: 60px;
+  cursor: pointer;
+}
+
