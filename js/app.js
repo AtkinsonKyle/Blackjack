@@ -17,7 +17,7 @@ function DeckMaker(cardId, suit, value) {
   this.cardId = cardId;
   this.suit = suit;
   this.value = value;
-  // this.dealt = false;
+  this.imgSrc = `./../images/game-page/card-faces/${this.cardId}${this.suit}.png`;
   deckArray.push(this); //eslint-disable-line
 }
 
@@ -36,7 +36,7 @@ function buildDeck() {
   }
   shuffle();
 }
-buildDeck();
+// buildDeck();
 
 for (var i = 0; i < deckArray.length; i++) {
   if (deckArray[i].cardId === 'ace') {
@@ -79,11 +79,40 @@ function getCard(target, targetEl) {
   // console.log(card);
   target.handArray.push(card);
   target.handTotal += card.value;
-  var cardOut = document.createElement('div');
-  cardOut.textContent = `${card.cardId}, ${card.suit}`;
-  targetEl.appendChild(cardOut);
+  appendCard(card, targetEl);
+}
+//Each cardContainer has three elements used in CSS animation
+function appendCard(card, targetEl){
+  var cardContainer = document.createElement('div');
+  cardContainer.classList.add('cardContainer');
+  var cardParent = document.createElement('div');
+  cardParent.classList.add('cardParent');
+  var cardFront = document.createElement('div');
+  cardFront.classList.add('front');
+  var cardImg = document.createElement('img');
+  cardImg.src = card.imgSrc;
+  var cardBack = document.createElement('div');
+  cardBack.classList.add('front', 'back');
+  cardBack.append(cardImg);
+  cardParent.appendChild(cardFront);
+  cardParent.appendChild(cardBack);
+  cardContainer.append(cardParent);
+  targetEl.appendChild(cardContainer);
+  // console.log(card);
+  if (dealer.handArray.length === 1 && player.handArray.length === 1 ){
+    // do nothing
+  }else{
+    setTimeout(function(){
+      flipCard(cardParent);
+    }, 100);
+  }
+}
+function flipCard(targetEl){
+  // console.log(targetEl);
+  targetEl.classList.toggle('flipme');
 }
 
+// Resets all of the turn variables and deals the initial four cards
 function initialDeal(bet) {
   playerCards.innerHTML = '';
   dealerCards.innerHTML = '';
@@ -117,11 +146,15 @@ function playerStay(event) {//eslint-disable-line
   hitButton.removeEventListener('click', playerHit);
   stayButton.removeEventListener('click', playerStay);
   // dealer turn
+  // uncovers dealers hold card
+  flipCard(document.getElementById('dealerhand').children[0].children[0]);
+
   while (dealer.handTotal < 17) {
     getCard(dealer, dealerCards);
   }
   calcTotals();
 }
+
 
 // player bet, initial bet is hard wired at 5 until
 function playerBet(event) { //eslint-disable-line
