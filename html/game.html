@@ -4,33 +4,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card Games: Blackjack</title>
+  <title>Blackjack Table</title>
   <link rel="stylesheet" href="./../css/reset.css" type="text/css">
   <link rel="stylesheet" href="./../css/game.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ewert&family=Rye&family=Sigmar+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <h1><a href="#">blackjack</a></h1>
-  </header>
   <main>
     <section>
-      <section id="dealerhand" class="cardzone">
-        <!-- append from js -->
+      <section class="playarea">
+        <section id="dealerhand">
+          <!-- will append from *.js -->
+        </section>
+        <figure id="chips">
+          <!-- chips eventually -->
+        </figure>
+        <section id="playerhand">
+          <!-- will append from *.js -->
+        </section>
+        <section>
+          <div>
+            <form id="playerbet">
+              <label>
+                <input type="number" id="betinput" name="betamount" placeholder="bet" class="bordereffect" step="5">
+                <span id="border"><i></i></span>
+              </label>
+              <input type="button" name="submitbutton" value="Deal" id="bet" class="button">
+            </form>
+          </div>
+          <div id="hit" class="button">hit</div>
+          <div id="stay" class="button">stay</div>
+        </section>
       </section>
-      <section id="playerhand" class="cardzone">
-        <!--  append from js -->
-      </section>
-      <section id="playerbuttons">
-        <div id="bet" class="button">bet</div>
-        <div id="hit" class="button">hit</div>
-        <div id="stay" class="button">stay</div>
+      <section class="infotab">
+        <section>
+          <ul id="playerinfo" class="infobar">
+            <li><h3>Player Name</h3></li>
+            <li><p>spaceghost</p></li>
+            <li><h3>Bank Roll</h3></li>
+            <li><p id="temp-bank"></p></li>
+            <li><h3>Hands Played</h3></li>
+            <li><p>8</p></li>
+          </ul>
+          <section class="infobar">
+            <h3>Game History</h3>
+            <ul id="gamehistory">
+              <!-- append <p> from *.js with what just happened -->
+                <li>player hits</li>
+                <li>player stays</li>
+                <li>dealer hits</li>
+                <li>dealer bust</li>
+                <li>player wins 10</li>
+                <li>player bets 5</li>
+                <li>player hits</li>
+                <li>player stays</li>
+                <li>dealer hits</li>
+                <li>dealer bust</li>
+                <li>player wins 10</li>
+                <li>player bets 5</li>
+                <li>player hits</li>
+                <li>player stays</li>
+                <li>dealer hits</li>
+                <li>dealer bust</li>
+                <li>player wins 10</li>
+                <li>player bets 5</li>
+                <li>player hits</li>
+                <li>player stays</li>
+                <li>dealer hits</li>
+                <li>dealer bust</li>
+                <li>player wins 10</li>
+                <li>player bets 5</li>
+              </ul>
+          </section>
+          <div class="infobar">
+            <a href="./../index.html">
+              <div>MAIN PAGE</div>
+            </a>
+          </div>
+          </section>
+        </section>
       </section>
     </section>
-    <div id="temp-bank"></div>
   </main>
-  <footer></footer>
   <script src="./../js/app.js"></script>
+  <!-- local javascript to test new functions out in before putting into the main app.js -->
+  <!-- <script src="./../js/testing.js"></script> -->
 </body>
 
 </html>
+
+
+<!--  card containers for animation to be created in js -->
+<!-- <div class="cardContainer">
+  <div class="cardParent">
+    <div class="front">
+    </div>
+    <div class="front back">
+      <img>
+    </div>
+  </div>
+</div> -->
