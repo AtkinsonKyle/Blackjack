@@ -1,123 +1,108 @@
- body {
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 50px;
-  border: black solid 2px;
+body {
+	margin: 10px auto 10px auto; 
+	background-image: url("/images/game-page/game-page-background.jpg"); 
+	background-size: cover;
+	text-align: center;
 }
 
-#divider, #divider2 {
-  border: solid black 2px;
-  margin: 50px;
-  z-index: -1;
+main {
+	width: 960px;
+	margin: 20px auto;
+	background-image: url("/images/about-background-mid.jpg");
+	background-size: contain;
 }
 
 header {
-  margin-bottom: 30px;
-
+	width: 960px;
+	margin: 10px auto;
+	background-image: url("/images/felt.jpg"); 
+	background-size: cover;
+	border: solid 10px black;
+	border-radius: 25px;
 }
 
-header > h1 {
-  font-size: xx-large;
-  font-weight: bolder;
-  text-align: center;
-  padding: 30px;
-}
-
-nav > ul {
-  text-align: center;
-  display: inline;
+h1 {
+  font-family: 'Rye', cursive;
+  font-size: 50px;
+	color: red;    
+	text-align: center; 
+  text-shadow: 10px 10px 20px black;
+	padding: 5px;
+	width: 400px;
+  margin: 10px auto;
   
 }
 
-nav > ul > li {
-  display: inline;
-  margin: 30px;  
+
+ul {
+	width: 700px;
+	padding: 40px; 
+	margin: 0px auto auto auto; 
+	border-bottom: 1px solid black; 
+	text-align: center; 
+	font-size: 20px;
+	color: #D95336  
 }
 
-nav > ul > li > a {
-  background-color: white;
-  z-index: 5;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  position: relative;
-  top: 60px;
-  margin-left: 150px;
-  border: rgb(255, 255, 255) 2px solid;
-  border-radius: 10px;
-  padding: 5px;
-  
-}
-/*
-LINK NOT VISITED
-header > li > a > a:link {
-  color: black
+li  {
+	display: inline;
+	margin: 0px 5px; 
+	color: #D95336; 
+	font-family:'Merriweather', serif;
+} 
+
+footer {
+  text-align: center;  
+  padding: 20px;
+  font-weight: 500; 
+  font-size: 15px;
+  font-family: 'Fredericka the Great', cursive;
+  background-image: url("/images/felt.jpg"); 
+  color: red; 
+  width: 960px;
+  margin: 10px auto;
+  border: solid 10px black;
+  border-radius: 25px;
 }
 
-HOVER OVER EFFECT
-nav > ul > li > a > a:hover {
-  color: blue;
-  text-decoration: underline;
-}
-PAGE YOU'RE ON
-a:active
-*/
+a{
+	text-decoration: none;
+	color: #D95336; 
+} 
 
-nav > ul > li > a {
-  text-decoration: none;
-  color: black;
+a.button{
+	background-color: rgb(226, 43, 43); 
+	border: 1px solid red; 
+	border-radius: 5px; 
+	color: whitesmoke; 
+	padding: 10px 10px 10px 10px;
+} 
+
+a.button:active,a.button:focus,a.button:hover{
+	background-color: yellow; 
+	margin-top: -5px; 
+	color: black;
+} 
+
+a.button:hover {
+	border: 1px solid orange;
 }
 
 article {
+  margin: 20px auto;
+  font-family: sans-serif;
+  border: red 2px solid;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, .3);
+  padding: 10px;
+  color: black;
   display: inline-flex;
+  width: 80%;
 }
 
-#falbo {
-  margin: 50px;
-  border: black 2px solid;
-  padding: 10px;
-}
-
-#falbo img {
+img {
   width: 200px;
   height: 200px;
-  margin-left: 590px;
-}
-
-#chase {
-  margin: 50px;
-  border: black 2px solid;
-  padding: 10px;
-}
-
-#chase img {
-  width: 200px;
-  height: 200px;
-  margin-right: 590px;
-}
-
-#ak {
-  margin: 50px;
-  border: black 2px solid;
-  padding: 10px;
-}
-
-#ak img {
-  width: 200px;
-  height: 200px;
-  margin-left: 590px;
-}
-
-#felicia {
-  margin: 50px;
-  border: black 2px solid;
-  padding: 10px;
-}
-
-#felicia img {
-  width: 200px;
-  height: 200px;
-  margin-right: 590px;
 }
 
 p {
