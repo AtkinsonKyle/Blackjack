@@ -1,0 +1,130 @@
+ body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 50px;
+  border: black solid 2px;
+}
+
+#divider, #divider2 {
+  border: solid black 2px;
+  margin: 50px;
+  z-index: -1;
+}
+
+header {
+  margin-bottom: 30px;
+
+}
+
+header > h1 {
+  font-size: xx-large;
+  font-weight: bolder;
+  text-align: center;
+  padding: 30px;
+}
+
+nav > ul {
+  text-align: center;
+  display: inline;
+  
+}
+
+nav > ul > li {
+  display: inline;
+  margin: 30px;  
+}
+
+nav > ul > li > a {
+  background-color: white;
+  z-index: 5;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  top: 60px;
+  margin-left: 150px;
+  border: rgb(255, 255, 255) 2px solid;
+  border-radius: 10px;
+  padding: 5px;
+  
+}
+/*
+LINK NOT VISITED
+header > li > a > a:link {
+  color: black
+}
+
+HOVER OVER EFFECT
+nav > ul > li > a > a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+PAGE YOU'RE ON
+a:active
+*/
+
+nav > ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+
+article {
+  display: inline-flex;
+}
+
+#falbo {
+  margin: 50px;
+  border: black 2px solid;
+  padding: 10px;
+}
+
+#falbo img {
+  width: 200px;
+  height: 200px;
+  margin-left: 590px;
+}
+
+#chase {
+  margin: 50px;
+  border: black 2px solid;
+  padding: 10px;
+}
+
+#chase img {
+  width: 200px;
+  height: 200px;
+  margin-right: 590px;
+}
+
+#ak {
+  margin: 50px;
+  border: black 2px solid;
+  padding: 10px;
+}
+
+#ak img {
+  width: 200px;
+  height: 200px;
+  margin-left: 590px;
+}
+
+#felicia {
+  margin: 50px;
+  border: black 2px solid;
+  padding: 10px;
+}
+
+#felicia img {
+  width: 200px;
+  height: 200px;
+  margin-right: 590px;
+}
+
+p {
+  font-size: 20px;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+}
