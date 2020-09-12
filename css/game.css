@@ -60,28 +60,33 @@ main {
 }
 
 .infobar {
-  border: 2px solid black;
+  border: 5px solid black;
   border-radius: 15px;
-  background: url(./../images/game-page/info-background.jpg) 100%;
+  background: url(./../images/about-background-mid.jpg);
+  background-size: auto;
+  background-position: center;
+  color: #90b488;
 }
 
 .infobar>a {
   text-decoration: none;
-  color: black;
+  color: #90b488;
   font-family: 'Rye', cursive;
   font-size: 30px;
+  text-shadow: 3px 3px 2px black;
+  background: url(./../images/felt.jpg);
 }
 
 .infobar>a:visited {
   text-decoration: none;
-  color: black;
+  color: #90b488;
   font-family: 'Rye', cursive;
   font-size: 30px;
 }
 
 .infobar>a:link {
   text-decoration: none;
-  color: black;
+  color: #90b488;
   font-family: 'Rye', cursive;
   font-size: 30px;
 }
@@ -110,6 +115,7 @@ main {
   margin: 3px auto;
   border-radius: 10px;
   cursor: pointer;
+  color: #330b0b
 }
 #gamehistory>li:nth-child(even){
   background: #F2FFE8;
@@ -122,7 +128,7 @@ main {
 }
 
 ::-webkit-scrollbar-track {
-  background: #422F11;
+  background: #1b291d;
 }
 
 ::-webkit-scrollbar-thumb {
