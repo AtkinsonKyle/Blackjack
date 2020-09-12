@@ -6,7 +6,7 @@ body {
 }
 
 main {
-  width: 80%;
+  width: 960px;
 	margin: 20px auto;
 	background-image: url("/images/about-background-mid.jpg");
   background-size: cover;
