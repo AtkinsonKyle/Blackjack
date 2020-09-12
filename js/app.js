@@ -1,5 +1,7 @@
 'use strict';
 
+var playerName = prompt('enter name');
+
 //global variables
 var deckArray = [];
 var bet = 5;
@@ -38,19 +40,10 @@ function buildDeck() {
 }
 // buildDeck();
 
-for (var i = 0; i < deckArray.length; i++) {
-  if (deckArray[i].cardId === 'ace') {
-    deckArray[i].aceAdjuster = function (target) {
-      if (target.handTotal > 21) {
-        this.value = 1;
-      }
-    };
-  }
-}
 
 // player object. name, bank, hand
 var player = {
-  name: 'name',
+  name: playerName,
   bankroll: 100,
   handArray: [],
   handTotal: 0
@@ -59,6 +52,25 @@ var dealer = {
   handArray: [],
   handTotal: 0
 };
+
+for (var m = 0; m <localStorage.length; m++){
+  if (localStorage.key(m) === playerName){
+    player = JSON.parse(localStorage.getItem(playerName));
+    dealer = JSON.parse(localStorage.getItem('dealer'));
+    loadSave(player, playerCards);
+    loadSave(dealer, dealerCards);
+  }
+}
+function loadSave(target, targetEl){
+  for (var i = 0; i < target.handArray.length; i++){
+    appendCard(target.handArray[i], targetEl);
+  }
+}
+
+var dealerSave = JSON.stringify(dealer);
+var playerSave = JSON.stringify(player);
+localStorage.setItem(playerName, playerSave);
+localStorage.setItem('dealer', dealerSave);
 
 // temp stuff to show bank roll
 var tempBank = document.getElementById('temp-bank');
@@ -73,13 +85,27 @@ function randomNumber() {
 
 // deal cards, push into player object and dealer hand
 function getCard(target, targetEl) {
-  var random = randomNumber();
-  var card = deckArray[random];
-  deckArray.splice(random, 1);
+  var card = deckArray[0];
+  deckArray.splice(0, 1);
   // console.log(card);
   target.handArray.push(card);
   target.handTotal += card.value;
+  if (target.handTotal > 21){
+    target.handTotal = 0;
+    for (var j = 0; j < target.handArray.length; j++){
+      if (target.handArray[j].cardId === 'ace'){
+        target.handArray[j].value = 1;
+      }
+    }
+    for (var n = 0; n < target.handArray.length; n++){
+      target.handTotal += target.handArray[n].value;
+    }
+  }
   appendCard(card, targetEl);
+  playerSave = JSON.stringify(player);
+  dealerSave = JSON.stringify(dealer);
+  localStorage.setItem(playerName, playerSave);
+  localStorage.setItem('dealer', dealerSave);
 }
 //Each cardContainer has three elements used in CSS animation
 function appendCard(card, targetEl){
@@ -98,7 +124,10 @@ function appendCard(card, targetEl){
   cardParent.appendChild(cardBack);
   cardContainer.append(cardParent);
   targetEl.appendChild(cardContainer);
+  //   STOPPED HERE
   // console.log(card);
+  // var checkFlip = document.getElementById(dealerCards);
+  // console.log(checkFlip);
   if (dealer.handArray.length === 1 && player.handArray.length === 1 ){
     // do nothing
   }else{
@@ -179,7 +208,7 @@ function calcTotals() {
     player.bankroll += bet * 2;
   } else if (player.handTotal === dealer.handTotal) {
     player.bankroll += bet;
-  } else if (player.handTotal === 21) {
+  } else if (player.handTotal === 21 && player.handArray.length === 2) {
     player.bankroll += bet * 3.5;
     // next turn
   } else if (player.handTotal > dealer.handTotal) {
