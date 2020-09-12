@@ -1,0 +1,237 @@
+@import url("./game-animations.css");
+* {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: 0;
+}
+
+body {
+  background: url(./../images/game-page/game-page-background.jpg);
+  background-size: cover;
+  text-align: center;
+}
+
+main {
+  width: 960px;
+  margin: 20px auto;
+}
+
+/*  ------------right hand info tab------------  */
+
+.infotab {
+  float: left;
+  width: 26%;
+  height: 680px;
+  padding: 5px;
+}
+
+.infotab ul {
+  width: 95%;
+  margin: 10px auto;
+  height: 180px;
+}
+
+.infobar h3 {
+  font-family: 'Rye', cursive;
+  font-size: 22px;
+  margin: 5px;
+}
+
+.infobar li>p {
+  font-family: 'Architects Daughter', cursive;
+  background: white;
+  padding: 3px;
+  width: 200px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.infotab>section>section:nth-child(2) {
+  width: 95%;
+  margin: 10px auto;
+  height: 390px;
+}
+
+.infotab div {
+  width: 95%;
+  margin: 10px auto;
+  height: 60px;
+}
+
+.infobar {
+  border: 2px solid black;
+  border-radius: 15px;
+  background: url(./../images/game-page/info-background.jpg) 100%;
+}
+
+.infobar>a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Rye', cursive;
+  font-size: 30px;
+}
+
+.infobar>a:visited {
+  text-decoration: none;
+  color: black;
+  font-family: 'Rye', cursive;
+  font-size: 30px;
+}
+
+.infobar>a:link {
+  text-decoration: none;
+  color: black;
+  font-family: 'Rye', cursive;
+  font-size: 30px;
+}
+
+.infobar>a>div {
+  margin-top: 0px;
+  line-height: 60px;
+  margin-bottom: 1px;
+}
+
+.infobar>h3 {
+  font-family: 'Rye', cursive;
+}
+
+#gamehistory {
+  height: 340px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#gamehistory>li {
+  font-family: 'Architects Daughter', cursive;
+  background: white;
+  padding: 3px;
+  width: 180px;
+  margin: 3px auto;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#gamehistory>li:nth-child(even){
+  background: #F2FFE8;
+}
+
+/* adapted from snippet on w3schools */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #422F11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*  --------------- Game Area ----------------- */
+
+.playarea {
+  background: url(./../images/game-page/game-table.jpg) 100%;
+  float: left;
+  width: 70%;
+  margin: 0px 2%;
+  height: 680px;
+}
+
+#dealerhand {
+  width: 95%;
+  margin: 20px auto;
+  height: 200px;
+}
+
+#playerhand {
+  width: 95%;
+  margin: 20px auto;
+  height: 200px;
+}
+
+#chips {
+  height: 100px;
+  /* add chip animations */
+}
+
+.playarea>section:last-child {
+  width: 85%;
+  margin: 15px auto;
+  height: 60px;
+  text-align: center;
+}
+
+.playarea>section:last-child>div {
+  display: inline-block;
+}
+
+/*  hit button */
+
+#hit {
+  position: relative;
+  right: -60px;
+  line-height: 80px;
+}
+
+/*  stay button */
+
+#stay {
+  position: relative;
+  right: -100px;
+  line-height: 80px;
+}
+
+/*  bet input form */
+
+form input:first-child {
+  position: relative;
+  height: 80px;
+  right: 100px;
+  top: 1px;
+  width: 80px;
+  text-align: center;
+  border-radius: 50px;
+  border: 1px solid black;
+  font-size: 20px;
+  font-family: 'Architects Daughter', cursive;
+}
+
+/*  deal button */
+
+form input:nth-child(2) {
+  position: relative;
+  right: 60px;
+  border: none;
+}
+
+.button {
+  cursor: pointer;
+  font-family: 'Sigmar One', cursive;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  background: url(./../images/game-page/chip-button.png) no-repeat;
+  background-size: 80px 80px;
+}
+
+/*  --------------- Card Styles ------------------ */
+
+#playerhand div, #dealerhand div {
+  width: 129px;
+  height: 180px;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+}
+#playerhand div > img, #dealerhand div > img {
+  width: 110px;
+  margin: 10px auto;
+}
