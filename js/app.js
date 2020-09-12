@@ -76,11 +76,6 @@ localStorage.setItem('dealer', dealerSave);
 var tempBank = document.getElementById('temp-bank');
 tempBank.innerHTML = player.bankroll;
 
-// randomize function
-function randomNumber() {
-  return Math.floor(Math.random() * deckArray.length);
-}
-
 // player bet input function, check max against bankroll
 
 // deal cards, push into player object and dealer hand
