@@ -68,7 +68,6 @@
   background: url(./../images/game-page/card-back.jpg);
   background-size: cover;
 }
-
 .cardParent .front {
   backface-visibility: hidden;
   border-radius: 6px;
@@ -77,13 +76,11 @@
   overflow: hidden;
   width: 100%;
 }
-
 .cardParent .back {
   transform: rotateY(180deg);
   bottom: 183px;
   background: white;
 }
-
 .cardParent.flipme {
   transform: rotateY(180deg);
 }
