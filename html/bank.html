@@ -4,25 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blackjack</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="./../css/reset.css">
+  <link rel="stylesheet" href="./../css/bank.css">
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ewert&family=Rye&family=Sigmar+One&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>Blackjack</h1>
+    <h1>Score Board</h1>
     <nav> 
       <ul>
-      <li><a href="../index.html">Home Page</a></li>
-        <li><a href="../html/rules.html">Rules Page</a></li>
-        <li><a href="../html/bank.html">Bank Page</a></li>
-        <li><a href="../html/game.html">Game Page</a></li>
-        <li><a href="../html/about-us.html">About the Team</a></li>
+      <li><a href="../index.html" class="button">Home Page</a></li>
+        <li><a href="../html/rules.html" class="button">How to Play</a></li>
+        <li><a href="../html/bank.html" class="button">Bank Page</a></li>
+        <li><a href="../html/about-us.html" class="button">About the Team</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section><h2>Bank</h2></section>
-    <section><h2>High Scores</h2></section>
+    <div><img src="./../images/about-background-top.jpg"></div>
+    <section>
+      <h2>Player Score Board</h2>
+      <table id="scoreboard">
+      <tr>
+        <th>Player Name</th>
+        <th>Bank Roll</th>
+        <th>Hands Played</th>
+      </tr>
+      <tr>
+        <td>Player Name</td>
+        <td>Bank Roll</td>
+        <td>Hands Played</td>
+      </tr>
+      <tr>
+        <td>Player Name</td>
+        <td>Bank Roll</td>
+        <td>Hands Played</td>
+      </tr>
+    </table>
+    </section>
+    <!-- <div><img src="./../images/about-background-bottom.jpg"></div> -->
   </main>
   <footer>
     &copy; Felicia, Scott, Chase, Kyle

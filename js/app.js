@@ -4,13 +4,13 @@ var playerName = prompt('enter name');
 
 //global variables
 var deckArray = [];
-var bet = 5;
+var bet = 0;
 
 //get elements from DOM
 // var playerButtons = document.getElementById('playerbuttons');
 var hitButton = document.getElementById('hit');
 var stayButton = document.getElementById('stay');
-var betButton = document.getElementById('bet');
+var betButton = document.getElementById('playerbet');
 var playerCards = document.getElementById('playerhand');
 var dealerCards = document.getElementById('dealerhand');
 
@@ -180,9 +180,14 @@ function playerStay(event) {//eslint-disable-line
 }
 
 
+
 // player bet, initial bet is hard wired at 5 until
-function playerBet(event) { //eslint-disable-line
-  betButton.removeEventListener('click', playerBet);
+  function playerBet(event) { //eslint-disable-line  
+  console.log('hello');
+  event.preventDefault();
+  betButton.removeEventListener('submit', playerBet);
+  bet = parseInt(event.target.betamount.value);
+  // player.bankroll -= bet;
   initialDeal(bet);
   tempBank = document.getElementById('temp-bank');
   tempBank.innerHTML = player.bankroll;
@@ -215,7 +220,7 @@ function calcTotals() {
 
 function nextTurn() {
   // local storage bankroll //
-  betButton.addEventListener('click', playerBet);
+  betButton.addEventListener('submit', playerBet);
   tempBank = document.getElementById('temp-bank');
   tempBank.innerHTML = player.bankroll;
 }
@@ -256,7 +261,7 @@ function shuffle() {
 
 hitButton.addEventListener('click', playerHit);
 stayButton.addEventListener('click', playerStay);
-betButton.addEventListener('click', playerBet);
+betButton.addEventListener('submit', playerBet);
 
 // player turn, hit, stay.  Conditional to add up hand total
 // if bust lose money, next hand

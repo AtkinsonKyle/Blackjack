@@ -14,6 +14,7 @@ main {
 
 header {
 	width: 960px;
+	height: 170px;
 	margin: 10px auto;
 	background-image: url("/images/felt.jpg"); 
 	background-size: cover;
@@ -24,7 +25,7 @@ header {
 h1 {
   font-family: 'Rye', cursive;
   font-size: 50px;
-	color: red;    
+	color: #D95336;    
 	text-align: center; 
   text-shadow: 10px 10px 20px black;
 	padding: 5px;
@@ -58,7 +59,7 @@ footer {
   font-size: 15px;
   font-family: 'Fredericka the Great', cursive;
   background-image: url("/images/felt.jpg"); 
-  color: red; 
+  color: #D95336; 
   width: 960px;
   margin: 10px auto;
   border: solid 10px black;
@@ -72,7 +73,7 @@ a{
 
 a.button{
 	background-color: rgb(226, 43, 43); 
-	border: 1px solid red; 
+	border: 1px solid #D95336; 
 	border-radius: 5px; 
 	color: whitesmoke; 
 	padding: 10px 10px 10px 10px;
@@ -91,7 +92,7 @@ a.button:hover {
 article {
   margin: 20px auto;
   font-family: sans-serif;
-  border: red 2px solid;
+  border: #D95336 2px solid;
   border-radius: 25px;
   background-color: rgba(255, 255, 255, .3);
   padding: 10px;

@@ -9,7 +9,7 @@ main {
   width: 960px;
 	margin: 20px auto;
 	background-image: url("/images/about-background-mid.jpg");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   padding-bottom: 20px;
 }
@@ -60,40 +60,34 @@ li  {
 	font-family:'Merriweather', serif;
 } 
 
-figure{
-  padding: 10px;
-  background: white;
+table {
   margin: 20px auto;
-  width: 215px;
-  border: 2px solid black;
-  border-radius: 15px;
+  background: rgba(255, 255, 255, .4);
 }
-figure > img {
-  width: 215px;
-}
-
-h2 {
+table th {
+  padding: 5px 10px;
+  border: 1px solid black;
   font-family: 'Rye', cursive;
-  font-size: 30px;
-	color: #D95336;    
-	text-align: center; 
-  text-shadow: 10px 10px 20px black;
-	padding: 5px;
-	width: 400px;
-  margin: 10px auto;
+  font-size: 25px;
 }
-
-article p {
-  margin: 20px auto;
-  font-family: sans-serif;
-  border: #D95336 2px solid;
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, .4);
-  padding: 10px;
-  color: black;
-  display: inline-flex;
-  width: 80%;
+table td {
+  padding: 5px 10px;
+  border: 1px solid black;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 25px;
+  color: #1b0303;
 }
+ main > div:first-child img {
+   width: 100%;
+ }
+ /* main > div:last-child {
+   width: 100%;
+   position: absolute;
+ }
+ main > div:last-child img {
+   width: 100%;
+   position: absolute;
+ } */
 
 footer {
   text-align: center;  
