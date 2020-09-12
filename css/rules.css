@@ -1,0 +1,148 @@
+body {
+  margin: 10px auto 10px auto;
+  background-image: url("/images/game-page/game-page-background.jpg");
+  background-size: cover;
+  text-align: center;
+}
+
+header {
+  width: 960px;
+  margin: 10px auto;
+  background-image: url("/images/felt.jpg");
+  background-size: cover;
+  border: solid 10px black;
+  border-radius: 25px;
+}
+
+header li {
+  display: inline;
+  margin: 0px 5px;
+  color: #D95336;
+}
+
+h1 {
+  font-family: 'Rye', cursive;
+  font-size: 50px;
+  color: red;
+  text-align: center;
+  text-shadow: 10px 10px 20px black;
+  padding: 5px;
+  width: 400px;
+  margin: 10px auto;
+}
+
+main {
+  width: 960px;
+  margin: 20px auto;
+  background-image: url("/images/about-background-mid.jpg");
+  background-size: contain;
+}
+
+article li {
+  font-family: 'Josefin Slab', serif;
+  font-size: 24px;
+  color: #D95336;
+  text-align: center;
+  padding: 10px;
+  width: 80%;
+  margin: 10px auto;
+  background: rgba(255, 255, 255, .2);
+  border: 5px solid #C95334;
+}
+
+h2 {
+  font-family: 'Rye', cursive;
+  font-size: 40px;
+  color: red;
+  text-align: center;
+  padding: 5px;
+}
+
+p {
+  font-family: 'Josefin Slab', serif;
+  font-size: 24px;
+  color: #D95336;
+  text-align: center;
+  padding: 10px;
+  width: 80%;
+  margin: 10px auto;
+  background: rgba(255, 255, 255, .2);
+  border: 5px solid #C95334;
+}
+
+.twentyone {
+  font-weight: 900;
+}
+
+ol li {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  color: #D95336;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: 'Fredericka the Great', cursive;
+  background-image: url("/images/felt.jpg");
+  padding: 5px;
+  color: red;
+  width: 960px;
+  margin: 10px auto;
+  border: solid 10px black;
+  border-radius: 25px;
+}
+
+section div {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 900;
+  font-family: 'Josefin Slab', serif;
+}
+
+figure img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px;
+  height: 450px;
+}
+
+section img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 215px;
+  height: 300px;
+  padding: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: #D95336;
+}
+
+a.button {
+  background-color: rgb(226, 43, 43);
+  border: 1px solid red;
+  border-radius: 5px;
+  color: whitesmoke;
+  padding: 10px 10px 10px 10px;
+}
+
+a.button:active, a.button:focus, a.button:hover {
+  background-color: yellow;
+  margin-top: -5px;
+  color: black;
+}
+
+a.button:hover {
+  border: 1px solid orange;
+}
