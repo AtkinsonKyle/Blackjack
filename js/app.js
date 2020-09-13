@@ -56,21 +56,14 @@ var dealer = {
 for (var m = 0; m <localStorage.length; m++){
   if (localStorage.key(m) === playerName){
     player = JSON.parse(localStorage.getItem(playerName));
-    dealer = JSON.parse(localStorage.getItem('dealer'));
-    loadSave(player, playerCards);
-    loadSave(dealer, dealerCards);
-  }
-}
-function loadSave(target, targetEl){
-  for (var i = 0; i < target.handArray.length; i++){
-    appendCard(target.handArray[i], targetEl);
+    // dealer = JSON.parse(localStorage.getItem('dealer'));
   }
 }
 
-var dealerSave = JSON.stringify(dealer);
+// var dealerSave = JSON.stringify(dealer);
 var playerSave = JSON.stringify(player);
 localStorage.setItem(playerName, playerSave);
-localStorage.setItem('dealer', dealerSave);
+// localStorage.setItem('dealer', dealerSave);
 
 // temp stuff to show bank roll
 var tempBank = document.getElementById('temp-bank');
@@ -98,10 +91,13 @@ function getCard(target, targetEl) {
   }
   appendCard(card, targetEl);
   playerSave = JSON.stringify(player);
-  dealerSave = JSON.stringify(dealer);
+  // dealerSave = JSON.stringify(dealer);
   localStorage.setItem(playerName, playerSave);
-  localStorage.setItem('dealer', dealerSave);
+  // localStorage.setItem('dealer', dealerSave);
 }
+
+
+
 //Each cardContainer has three elements used in CSS animation
 function appendCard(card, targetEl){
   var cardContainer = document.createElement('div');
