@@ -1,18 +1,19 @@
 'use strict';
 
-var playerName = prompt('enter name');
+var playerName = 'space loaf';
 
 //global variables
 var deckArray = [];
 var bet = 0;
 
 //get elements from DOM
-// var playerButtons = document.getElementById('playerbuttons');
 var hitButton = document.getElementById('hit');
 var stayButton = document.getElementById('stay');
 var betButton = document.getElementById('playerbet');
 var playerCards = document.getElementById('playerhand');
 var dealerCards = document.getElementById('dealerhand');
+var handTotalTracker = document.getElementById('handtotals');
+document.getElementById('betinput').value = 5;
 
 // deck constructor
 function DeckMaker(cardId, suit, value) {
@@ -38,8 +39,6 @@ function buildDeck() {
   }
   shuffle();
 }
-// buildDeck();
-
 
 // player object. name, bank, hand
 var player = {
@@ -69,8 +68,6 @@ localStorage.setItem(playerName, playerSave);
 var tempBank = document.getElementById('temp-bank');
 tempBank.innerHTML = player.bankroll;
 
-// player bet input function, check max against bankroll
-
 // deal cards, push into player object and dealer hand
 function getCard(target, targetEl) {
   var card = deckArray[0];
@@ -95,8 +92,6 @@ function getCard(target, targetEl) {
   localStorage.setItem(playerName, playerSave);
   // localStorage.setItem('dealer', dealerSave);
 }
-
-
 
 //Each cardContainer has three elements used in CSS animation
 function appendCard(card, targetEl){
@@ -147,6 +142,7 @@ function initialDeal(bet) {
   getCard(dealer, dealerCards);
   getCard(player, playerCards);
   getCard(dealer, dealerCards);
+  turnTotal(true);
 }
 
 // if player hits
@@ -158,6 +154,7 @@ function playerHit(event) {//eslint-disable-line
     //bust
     calcTotals();
   }
+  turnTotal(true);
   console.log(dealer.handTotal);
   console.log(player.handTotal);
 }
@@ -172,25 +169,28 @@ function playerStay(event) {//eslint-disable-line
   while (dealer.handTotal < 17) {
     getCard(dealer, dealerCards);
   }
+  turnTotal(false);
   calcTotals();
 }
 
-
-
 // player bet, initial bet is hard wired at 5 until
   function playerBet(event) { //eslint-disable-line  
-  console.log('hello');
   event.preventDefault();
-  betButton.removeEventListener('submit', playerBet);
   bet = parseInt(event.target.betamount.value);
-  // player.bankroll -= bet;
-  initialDeal(bet);
-  tempBank = document.getElementById('temp-bank');
-  tempBank.innerHTML = player.bankroll;
-  hitButton.addEventListener('click', playerHit);
-  stayButton.addEventListener('click', playerStay);
-  console.log(dealer.handTotal);
-  console.log(player.handTotal);
+  if (bet < 5){
+    alert('The minimum bet is 5');
+  } else if (bet > player.bankroll){
+    alert(`You can't cover that bet.  Please wager less than ${player.bankroll}`);
+  } else {
+    initialDeal(bet);
+    betButton.removeEventListener('submit', playerBet);
+    tempBank = document.getElementById('temp-bank');
+    tempBank.innerHTML = player.bankroll;
+    hitButton.addEventListener('click', playerHit);
+    stayButton.addEventListener('click', playerStay);
+    console.log(dealer.handTotal);
+    console.log(player.handTotal);
+  }
 }
 
 // call this function after all the stuff happens to calculate winner and new bank roll
@@ -221,85 +221,28 @@ function nextTurn() {
   tempBank.innerHTML = player.bankroll;
 }
 
+// picks two random cards and switches their spots 1000 times
 function shuffle() {
   for (var i = 0; i < 1000; i++) {
     var deck1 = Math.floor((Math.random() * deckArray.length));
     var deck2 = Math.floor((Math.random() * deckArray.length));
     var resetDeck = deckArray[deck1];
-
-
     deckArray[deck1] = deckArray[deck2];
     deckArray[deck2] = resetDeck;
   }
 }
 
+// function to output the totals of the player and dealer hand to the DOM
+function turnTotal(hideHand){
+  if (hideHand){
+    handTotalTracker.children[0].textContent = dealer.handArray[1].value;
+  } else {
+    handTotalTracker.children[0].textContent = dealer.handTotal;
+  }
+  handTotalTracker.children[1].textContent = player.handTotal;
+}
 
-// function dealerTurn(){
-//   hitButton.removeEventListener('click', dealerTurn);
-//   while (dealer.handTotal < 17){
-//     getCard(dealer, dealerCards);
-//   }
-//   calcTotals();
-// }
-
-// function dealerHit(event) {
-//   stayButton.removeEventListener('click', dealerHit);
-//   if (dealer.handTotal < 21) {
-//     getCard(dealer, dealerCards);
-//   }
-//   if (dealer.handTotal > 21) {
-//     //bust
-//     calcTotals();
-//   }
-// }
-
-
-
+//event listeners for hit button, stay button and bet input form
 hitButton.addEventListener('click', playerHit);
 stayButton.addEventListener('click', playerStay);
 betButton.addEventListener('submit', playerBet);
-
-// player turn, hit, stay.  Conditional to add up hand total
-// if bust lose money, next hand
-// if stay dealer turn
-// function playerInput(event){
-//   if (event.target.id === 'hit'){
-//     if (player.handTotal < 21){
-//       getCard(player, playerCards);
-//       if (player.handTotal > 21){
-//         calcTotals();
-//       }
-//     }
-//   } else if (event.target.id === 'stay'){
-//     dealerTurn();
-//   } else if (event.target.id === 'bet'){
-//     initialDeal(bet);
-//   }
-//   console.log(`dealer total: ${dealer.handTotal}`);
-//   console.log(`player total: ${player.handTotal}`);
-//   tempBank.innerHTML = player.bankroll;
-// }
-
-
-
-// function calcTotals(){
-//   console.log('hello total function');
-//   if (dealer.handTotal > 21 || (player.handTotal > dealer.handTotal && player.handTotal < 21)){
-//     console.log('player winner');
-//     if (player.handTotal === 21){
-//       player.bankRoll += (bet*3.5);
-//     } else {
-//       console.log(`the bet${bet} ... bank roll ${player.bankroll}`);
-//       player.bankRoll += (bet*2);
-//     }
-//   }
-// initialDeal(bet);
-// }
-// dealer turn,
-//If 21 next turn
-// if < 17 hit,
-// else stay.
-
-// save new bank total, wait for bet to start next hand
-
-//event listeners

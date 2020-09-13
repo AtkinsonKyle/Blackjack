@@ -163,10 +163,34 @@ main {
   height: 200px;
 }
 
-#chips {
+#handtotals {
   height: 100px;
-  /* add chip animations */
+  width: 60%;
+  margin: 0px auto;
 }
+#handtotals div {
+  height: 60px;
+  width: 60px;
+  background: rgba(255, 255, 255, .5); 
+  border-radius: 50px;
+  z-index: 2;
+  color: #220606;
+  font-family: 'Rye', cursive;
+  font-size: 40px;
+  line-height: 60px;;
+}
+#handtotals > div:first-child {
+  position: relative;
+  box-shadow: 0px 0px 70px 20px #fff;
+  bottom: 50px;
+  right: 60px;
+}
+#handtotals > div:last-child {
+  position: relative;
+  box-shadow: 0px 0px 70px 20px #fff;
+  left: 380px;
+}
+
 
 .playarea>section:last-child {
   width: 85%;
@@ -240,4 +264,5 @@ form input:nth-child(2) {
 #playerhand div > img, #dealerhand div > img {
   width: 110px;
   margin: 10px auto;
+  display: inline-block;
 }
