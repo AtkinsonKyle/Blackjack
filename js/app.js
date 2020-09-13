@@ -1,6 +1,8 @@
 'use strict';
 
-var playerName = 'harry';
+while (!playerName){
+  var playerName = prompt('Please enter your name.  To load an old game use the same name as before');
+}
 
 //global variables
 var deckArray = [];
@@ -46,9 +48,9 @@ function buildDeck() {
 var player = {
   name: playerName,
   bankroll: 100,
+  turnsPlayed: 0,
   handArray: [],
-  handTotal: 0,
-  turnsPlayed: 0
+  handTotal: 0
 };
 var dealer = {
   handArray: [],
@@ -127,14 +129,13 @@ function flipCard(targetEl){
 }
 
 // Resets all of the turn variables and deals the initial four cards
-function initialDeal(bet) {
+function initialDeal() {
   playerCards.innerHTML = '';
   dealerCards.innerHTML = '';
   player.handArray = [];
   player.handTotal = 0;
   dealer.handArray = [];
   dealer.handTotal = 0;
-  player.bankroll -= bet;
   deckArray = [];
   buildDeck(); //eslint-disable-line
   getCard(player, playerCards);
@@ -185,13 +186,15 @@ function playerStay(event) {//eslint-disable-line
   } else if (bet > player.bankroll){
     alert(`You can't cover that bet.  Please wager less than ${player.bankroll}`);
   } else {
-    initialDeal(bet);
+    player.bankroll -= bet;
+    initialDeal();
     betButton.removeEventListener('submit', playerBet);
     hitButton.addEventListener('click', playerHit);
     stayButton.addEventListener('click', playerStay);
     console.log(dealer.handTotal);
     console.log(player.handTotal);
   }
+  playerInfo()
   handHistory('Player', 'bets');
 }
 
@@ -257,17 +260,6 @@ function playerInfo(){
 //function to output hand history to the DOM
 function handHistory(target, action){
   var historyLine = document.createElement('li');
-  // if (((action === 'wins')&&(target === 'Dealer')) || action === 'bets'){
-  //   historyLine.innerHTML = `${target} ${action}, -${bet}`;
-  // } else if (action === 'wins' && target === 'Player'){
-  //   historyLine.innerHTML = `${target} ${action}, +${bet*2}`;
-  // } else if (action === 'BlackJack!') {
-  //   historyLine.innerHTML = `${target} ${action}, +${bet*3.5}`;
-  // } else if (action === 'pushes') {
-  //   historyLine.innerHTML = `${target} ${action}, +${bet}`;
-  // } else {
-  //   historyLine.innerHTML = `${target} ${action}`;
-  // }
   historyLine.innerHTML = `${target} ${action}`;
   historyTab.insertAdjacentElement('afterbegin', historyLine);
 }
