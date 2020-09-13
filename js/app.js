@@ -4,13 +4,13 @@ var playerName = prompt('enter name');
 
 //global variables
 var deckArray = [];
-var bet = 5;
+var bet = 0;
 
 //get elements from DOM
 // var playerButtons = document.getElementById('playerbuttons');
 var hitButton = document.getElementById('hit');
 var stayButton = document.getElementById('stay');
-var betButton = document.getElementById('bet');
+var betButton = document.getElementById('playerbet');
 var playerCards = document.getElementById('playerhand');
 var dealerCards = document.getElementById('dealerhand');
 
@@ -56,30 +56,18 @@ var dealer = {
 for (var m = 0; m <localStorage.length; m++){
   if (localStorage.key(m) === playerName){
     player = JSON.parse(localStorage.getItem(playerName));
-    dealer = JSON.parse(localStorage.getItem('dealer'));
-    loadSave(player, playerCards);
-    loadSave(dealer, dealerCards);
-  }
-}
-function loadSave(target, targetEl){
-  for (var i = 0; i < target.handArray.length; i++){
-    appendCard(target.handArray[i], targetEl);
+    // dealer = JSON.parse(localStorage.getItem('dealer'));
   }
 }
 
-var dealerSave = JSON.stringify(dealer);
+// var dealerSave = JSON.stringify(dealer);
 var playerSave = JSON.stringify(player);
 localStorage.setItem(playerName, playerSave);
-localStorage.setItem('dealer', dealerSave);
+// localStorage.setItem('dealer', dealerSave);
 
 // temp stuff to show bank roll
 var tempBank = document.getElementById('temp-bank');
 tempBank.innerHTML = player.bankroll;
-
-// randomize function
-function randomNumber() {
-  return Math.floor(Math.random() * deckArray.length);
-}
 
 // player bet input function, check max against bankroll
 
@@ -103,10 +91,13 @@ function getCard(target, targetEl) {
   }
   appendCard(card, targetEl);
   playerSave = JSON.stringify(player);
-  dealerSave = JSON.stringify(dealer);
+  // dealerSave = JSON.stringify(dealer);
   localStorage.setItem(playerName, playerSave);
-  localStorage.setItem('dealer', dealerSave);
+  // localStorage.setItem('dealer', dealerSave);
 }
+
+
+
 //Each cardContainer has three elements used in CSS animation
 function appendCard(card, targetEl){
   var cardContainer = document.createElement('div');
@@ -185,9 +176,14 @@ function playerStay(event) {//eslint-disable-line
 }
 
 
+
 // player bet, initial bet is hard wired at 5 until
-function playerBet(event) { //eslint-disable-line
-  betButton.removeEventListener('click', playerBet);
+  function playerBet(event) { //eslint-disable-line  
+  console.log('hello');
+  event.preventDefault();
+  betButton.removeEventListener('submit', playerBet);
+  bet = parseInt(event.target.betamount.value);
+  // player.bankroll -= bet;
   initialDeal(bet);
   tempBank = document.getElementById('temp-bank');
   tempBank.innerHTML = player.bankroll;
@@ -220,7 +216,7 @@ function calcTotals() {
 
 function nextTurn() {
   // local storage bankroll //
-  betButton.addEventListener('click', playerBet);
+  betButton.addEventListener('submit', playerBet);
   tempBank = document.getElementById('temp-bank');
   tempBank.innerHTML = player.bankroll;
 }
@@ -261,7 +257,7 @@ function shuffle() {
 
 hitButton.addEventListener('click', playerHit);
 stayButton.addEventListener('click', playerStay);
-betButton.addEventListener('click', playerBet);
+betButton.addEventListener('submit', playerBet);
 
 // player turn, hit, stay.  Conditional to add up hand total
 // if bust lose money, next hand

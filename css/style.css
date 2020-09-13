@@ -1,19 +1,39 @@
 body {
-	max-width: 1200px;  
-	min-width: 600px;
 	margin: 10px auto 10px auto; 
-	background-image: url("/images/game-page/game-table.jpg"); 
-	background-repeat: no-repeat; 
+	background-image: url("/images/game-page/game-page-background.jpg"); 
 	background-size: cover;
-} 
+	text-align: center;
+}
+
+main {
+	width: 960px;
+	margin: 20px auto;
+	padding: 20px;
+	background: url("/images/about-background-mid.jpg"); 
+	background-size: cover;
+	background-position: center;
+
+}
+
+header {
+	width: 960px;
+	height: 170px;
+	margin: 10px auto;
+	background-image: url("/images/felt.jpg"); 
+	background-size: cover;
+	border: solid 10px black;
+	border-radius: 25px;
+}
 
 h1 {
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Rye', cursive;
   font-size: 50px;
 	color: red;    
 	text-align: center; 
-	border: 5px solid #C95334;
+	text-shadow: 10px 10px 20px black;
 	padding: 5px;
+	width: 400px;
+	margin: 10px auto;
 }
 
 
@@ -43,6 +63,7 @@ h2 {
 	padding: 5px;
 }  
 
+
 p {
 	font-family: 'Josefin Slab', serif;
 	font-size: 24px; 
@@ -71,9 +92,13 @@ footer {
 		font-weight: 500; 
 		font-size: 15px;  
 		font-family: 'Fredericka the Great', cursive;
-		border: 5px solid #C95334;
+		background-image: url("/images/felt.jpg"); 
 		padding: 5px;
-		color:#D95336;
+		color: red; 
+		width: 960px;
+		margin: 10px auto;
+		border: solid 10px black;
+		border-radius: 25px;
 	}
 	
 section div {
@@ -91,13 +116,23 @@ div img {
 		width: 300px;
   	height: 450px;
 	}
-section img {
-	display: block; 
+section > img {
 	margin-right: auto; 
 	margin-left: auto; 
-	width: 400px;
-	height: 550px;
+	width: 215px;
+	height: 300px;
+	/* padding: 40px; */
 } 
+main > section:first-child{
+	border: 2px solid black;
+	padding: 10px;
+	border-radius: 25px;
+	background: white;
+	width: 215px;
+	height: 300px;
+	margin: 20px auto;
+}
+
 
 a{
 	text-decoration: none;
@@ -105,7 +140,7 @@ a{
 } 
 
 a.button{
-	background-color: blueviolet; 
+	background-color: rgb(226, 43, 43); 
 	border: 1px solid red; 
 	border-radius: 5px; 
 	color: whitesmoke; 

@@ -6,15 +6,24 @@ body {
 }
 
 main {
-	width: 960px;
+  width: 960px;
 	margin: 20px auto;
 	background-image: url("/images/about-background-mid.jpg");
-	background-size: contain;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 20px;
 }
+ main > section > h2 {
+   font-family: 'Rye', cursive;
+   font-size: 40px;
+   color: #D95336;
+   text-align: center;
+   padding: 5px;
+ }
 
 header {
-	width: 960px;
-	height: 170px;
+  width: 960px;
+  height: 170px;
 	margin: 10px auto;
 	background-image: url("/images/felt.jpg"); 
 	background-size: cover;
@@ -25,13 +34,12 @@ header {
 h1 {
   font-family: 'Rye', cursive;
   font-size: 50px;
-	color: #D95336;    
+	color: red;    
 	text-align: center; 
   text-shadow: 10px 10px 20px black;
 	padding: 5px;
 	width: 400px;
   margin: 10px auto;
-  
 }
 
 
@@ -51,6 +59,35 @@ li  {
 	color: #D95336; 
 	font-family:'Merriweather', serif;
 } 
+
+table {
+  margin: 20px auto;
+  background: rgba(255, 255, 255, .4);
+}
+table th {
+  padding: 5px 10px;
+  border: 1px solid black;
+  font-family: 'Rye', cursive;
+  font-size: 25px;
+}
+table td {
+  padding: 5px 10px;
+  border: 1px solid black;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 25px;
+  color: #1b0303;
+}
+ main > div:first-child img {
+   width: 100%;
+ }
+ /* main > div:last-child {
+   width: 100%;
+   position: absolute;
+ }
+ main > div:last-child img {
+   width: 100%;
+   position: absolute;
+ } */
 
 footer {
   text-align: center;  
@@ -87,30 +124,4 @@ a.button:active,a.button:focus,a.button:hover{
 
 a.button:hover {
 	border: 1px solid orange;
-}
-
-article {
-  margin: 20px auto;
-  font-family: sans-serif;
-  border: #D95336 2px solid;
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, .3);
-  padding: 10px;
-  color: black;
-  display: inline-flex;
-  width: 80%;
-}
-
-img {
-  width: 200px;
-  height: 200px;
-}
-
-p {
-  font-size: 20px;
-}
-
-footer {
-  padding: 30px;
-  text-align: center;
 }
