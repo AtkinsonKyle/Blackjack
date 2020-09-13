@@ -19,6 +19,10 @@ main {
 
 /*  ------------right hand info tab------------  */
 
+#playerinfo p {
+  color: rgb(49, 10, 10);
+}
+
 .infotab {
   float: left;
   width: 26%;
@@ -169,25 +173,23 @@ main {
   margin: 0px auto;
 }
 #handtotals div {
-  height: 60px;
-  width: 60px;
-  background: rgba(255, 255, 255, .5); 
+  height: 80px;
+  width: 80px;
+  border: 4px solid rgba(255, 255, 255, .5);
   border-radius: 50px;
   z-index: 2;
-  color: #220606;
+  color: rgba(255, 255, 255, .5);
   font-family: 'Rye', cursive;
   font-size: 40px;
-  line-height: 60px;;
+  line-height: 75px;
 }
 #handtotals > div:first-child {
   position: relative;
-  box-shadow: 0px 0px 70px 20px #fff;
   bottom: 50px;
   right: 60px;
 }
 #handtotals > div:last-child {
   position: relative;
-  box-shadow: 0px 0px 70px 20px #fff;
   left: 380px;
 }
 
