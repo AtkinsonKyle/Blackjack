@@ -17,7 +17,7 @@ main {
 
 header {
 	width: 960px;
-	height: 170px;
+	height: 290px;
 	margin: 10px auto;
 	background-image: url("/images/felt.jpg"); 
 	background-size: cover;
@@ -70,10 +70,6 @@ p {
 	color:  #D95336 ;
 	text-align: center;  
 	padding: 30px;
-}
-
-.twentyone { 
-	font-weight: 900;
 }
 
 ol li {
