@@ -57,8 +57,8 @@ var dealer = {
   handTotal: 0
 };
 
-for (var m = 0; m <localStorage.length; m++){
-  if (localStorage.key(m) === playerName){
+for (var m = 0; m < localStorage.length; m++) {
+  if (localStorage.key(m) === playerName) {
     player = JSON.parse(localStorage.getItem(playerName));
     // dealer = JSON.parse(localStorage.getItem('dealer'));
   }
@@ -76,14 +76,14 @@ function getCard(target, targetEl) {
   // console.log(card);
   target.handArray.push(card);
   target.handTotal += card.value;
-  if (target.handTotal > 21){
+  if (target.handTotal > 21) {
     target.handTotal = 0;
-    for (var j = 0; j < target.handArray.length; j++){
-      if (target.handArray[j].cardId === 'ace'){
+    for (var j = 0; j < target.handArray.length; j++) {
+      if (target.handArray[j].cardId === 'ace') {
         target.handArray[j].value = 1;
       }
     }
-    for (var n = 0; n < target.handArray.length; n++){
+    for (var n = 0; n < target.handArray.length; n++) {
       target.handTotal += target.handArray[n].value;
     }
   }
@@ -95,7 +95,7 @@ function getCard(target, targetEl) {
 }
 
 //Each cardContainer has three elements used in CSS animation
-function appendCard(card, targetEl){
+function appendCard(card, targetEl) {
   var cardContainer = document.createElement('div');
   cardContainer.classList.add('cardContainer');
   var cardParent = document.createElement('div');
@@ -115,15 +115,15 @@ function appendCard(card, targetEl){
   // console.log(card);
   // var checkFlip = document.getElementById(dealerCards);
   // console.log(checkFlip);
-  if (dealer.handArray.length === 1 && player.handArray.length === 1 ){
+  if (dealer.handArray.length === 1 && player.handArray.length === 1) {
     // do nothing
-  }else{
-    setTimeout(function(){
+  } else {
+    setTimeout(function () {
       flipCard(cardParent);
     }, 100);
   }
 }
-function flipCard(targetEl){
+function flipCard(targetEl) {
   // console.log(targetEl);
   targetEl.classList.toggle('flipme');
 }
@@ -174,7 +174,9 @@ function playerStay(event) {//eslint-disable-line
 }
 
 // player bet, initial bet is hard wired at 5 until
-  function playerBet(event) { //eslint-disable-line  
+
+function playerBet(event) { //eslint-disable-line  
+
   event.preventDefault();
   bet = parseInt(event.target.betamount.value);
   if (bet < 5){
@@ -206,8 +208,12 @@ function calcTotals() {
     handHistory(playerName, 'pushes');
     player.bankroll += bet;
   } else if (player.handTotal === 21 && player.handArray.length === 2) {
+
+    player.bankroll += bet * 2.5;
+
     handHistory(playerName, 'BlackJack!');
     player.bankroll += bet * 3.5;
+
     // next turn
   } else if (player.handTotal > dealer.handTotal) {
     player.bankroll += bet * 2;
@@ -238,6 +244,43 @@ function shuffle() {
   }
 }
 
+
+function controlSong() {
+  var targetElement = document.getElementById('007');
+  targetElement.volume = .5;
+}
+
+document.getElementById('James-Bond').addEventListener('click', handleToggle);
+// controlSong2.removeEventListener('click', handleToggle2);
+function handleToggle() {
+  var song = document.getElementById('007');
+  if (song.paused) {
+    song.play();
+  } else {
+    song.pause();
+  }
+}
+
+controlSong();
+
+function controlSong2() {
+  var targetElement = document.getElementById('007');
+  targetElement.volume = 1;
+}
+
+document.getElementById('Elevator').addEventListener('click', handleToggle2);
+controlSong.removeEventListener('click', handleToggle);
+function handleToggle2() {
+  var song = document.getElementById('instrumental');
+  if (song.paused) {
+    song.play();
+  } else {
+    song.pause();
+  }
+}
+
+controlSong2();
+
 // function to output the totals of the player and dealer hand to the DOM
 function turnTotal(hideHand){
   if (hideHand){
@@ -247,6 +290,7 @@ function turnTotal(hideHand){
   }
   handTotalTracker.children[1].textContent = player.handTotal;
 }
+
 
 //function to write the player info to the DOM
 function playerInfo(){
@@ -267,7 +311,7 @@ function handHistory(target, action){
   } else if (action === 'pushes'){
     historyLine.innerHTML = `${target} ${action} +${bet}`;
   } else if (action === 'BlackJack!'){
-    historyLine.innerHTML = `${action} +${bet*2.5}`;
+    historyLine.innerHTML = `${action} +${bet*3.5}`;
   }
   historyTab.insertAdjacentElement('afterbegin', historyLine);
 }
