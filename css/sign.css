@@ -1,0 +1,40 @@
+:root {
+  /* neon color */
+  --neon-text-color: red;
+  --neon-border-color: rgb(2, 194, 2);
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 100px;
+  font-weight: 100;
+  color: rgb(255, 0, 0);
+  padding: 35px;
+  border: 5px solid rgb(2, 194, 2);
+  border-radius: 25px;
+  animation: flicker 1.5s infinite alternate;
+  width: 450px;
+  margin: 10px auto;
+}
+
+h1::-moz-selection {
+  background-color: var(--neon-border-color);
+  color: var(--neon-text-color);
+}
+
+h1::selection {
+  background-color: var(--neon-border-color);
+  color: var(--neon-text-color);
+}
+
+/* flickers neon lights */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 2px 2px 1px /*right*/ rgb(255, 0, 0), 2px 3px 1rem /*bottom*/ rgb(255, 0, 0), 0 0 200px var(--neon-text-color), 0 0 100px var(--neon-text-color), 0 0 100px var(--neon-text-color), 0 0 100px var(--neon-text-color), 0 0 100px var(--neon-text-color);
+    box-shadow: 0 0 5px rgb(2, 194, 2), inset 0 0 5px rgb(2, 194, 2), 0 0 50px var(--neon-border-color), inset 0 0 50px var(--neon-border-color), 0 0 50px var(--neon-border-color), inset 0 0 50px var(--neon-border-color);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    box-shadow: none;
+  }
+}
