@@ -1,7 +1,7 @@
 :root {
   /* neon color */
-  --neon-text-color: red;
-  --neon-border-color: rgb(2, 194, 2);
+  --text-color: red;
+  --border-color: rgb(2, 194, 2);
 }
 
 h1 {
@@ -18,20 +18,23 @@ h1 {
 }
 
 h1::-moz-selection {
-  background-color: var(--neon-border-color);
-  color: var(--neon-text-color);
+  background-color: var(--border-color);
+  color: var(--text-color);
 }
 
 h1::selection {
-  background-color: var(--neon-border-color);
-  color: var(--neon-text-color);
+  background-color: var(--border-color);
+  color: var(--text-color);
 }
 
 /* flickers neon lights */
 @keyframes flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: 2px 2px 1px /*right*/ rgb(255, 0, 0), 2px 3px 1rem /*bottom*/ rgb(255, 0, 0), 0 0 200px var(--neon-text-color), 0 0 100px var(--neon-text-color), 0 0 100px var(--neon-text-color), 0 0 100px var(--neon-text-color), 0 0 100px var(--neon-text-color);
-    box-shadow: 0 0 5px rgb(2, 194, 2), inset 0 0 5px rgb(2, 194, 2), 0 0 50px var(--neon-border-color), inset 0 0 50px var(--neon-border-color), 0 0 50px var(--neon-border-color), inset 0 0 50px var(--neon-border-color);
+    text-shadow: 0px 1px /*right*/ 10px  rgb(255, 0, 0), 1px 1px 5px /*intensity*/ rgb(255, 0, 0), 1px/*left*/
+     1px 2px var(--text-color), 0 0 100px var(--text-color), 0 0 100px var(--text-color), 0 0 100px var(--text-color), 0 0 100px var(--text-color);
+
+    /* NEON BOX */
+    box-shadow: 0 0 5px rgb(2, 194, 2), inset 0 0 5px rgb(2, 194, 2), 0 0 50px var(--border-color), inset 0 0 50px var(--border-color), 0 0 50px var(--border-color), inset 0 0 50px var(--border-color);
   }
   20%, 24%, 55% {
     text-shadow: none;
