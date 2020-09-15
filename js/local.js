@@ -1,44 +1,57 @@
 'use strict';
 
 var table = document.getElementById('scoreboard');
+
+function makeHeaders(){
+  var headersArray = ['Player Name', 'Bank Roll', 'Rounds'];
+  var trEl = document.createElement('tr');
+  for ( var j = 0; j < headersArray.length; j++){
+    appendElement('th', headersArray[j], trEl);
+  }
+  table.appendChild(trEl);
+}
+makeHeaders();
+
 // loop through local storage and push the objects into an array
 // Ron and Brei both helped.  Brei found the snippet of code that got us working.
-if (localStorage) {
-  var keys = Object.keys(localStorage),
-    i = keys.length;
-  while (i--) {
-    var trEl = document.createElement('tr');
-    // values.push(JSON.parse(localStorage.getItem(keys[i])));
-    var tempObject = JSON.parse(localStorage.getItem(keys[i]));
-    appendElement('td', tempObject.name, trEl);
-    appendElement('td', tempObject.bankroll, trEl);
-    appendElement('td', tempObject.turnsPlayed, trEl);
-    table.appendChild(trEl);
+function callStorage(){
+  if (localStorage) {
+    var keys = Object.keys(localStorage),
+      i = keys.length;
+    while (i--) {
+      var trEl = document.createElement('tr');
+      // values.push(JSON.parse(localStorage.getItem(keys[i])));
+      var tempObject = JSON.parse(localStorage.getItem(keys[i]));
+      appendElement('td', tempObject.name, trEl);
+      appendElement('td', tempObject.bankroll, trEl);
+      appendElement('td', tempObject.turnsPlayed, trEl);
+      appendElement('td', 'X', trEl);
+      trEl.children[3].classList.add('removebutton');
+      table.appendChild(trEl);
+    }
   }
 }
+callStorage();
 
-//Go through the array we just made and append it to the DOM
-
+//Function to make and append new children to a parent element
 function appendElement(child, content, parent){
-  console.log('hello');
   var newElement = document.createElement(child);
   newElement.textContent = content;
   parent.appendChild(newElement);
 }
 
+// Event handler that removes a player from storage by getting the name of the key associated with the X on the line clicked.
+function removeStorage(event){
+  event.preventDefault();
+  // This looks for the name at the beginning of the row clicked
+  var removeMe = event.target.parentElement.children[0].textContent;
+  console.log(removeMe);
+  // and then removes it from local storage
+  localStorage.removeItem(removeMe);
+  // Clear the table and call the functions to rewrite it with the new local storage data
+  table.innerHTML = '';
+  makeHeaders();
+  callStorage();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+table.addEventListener('click', removeStorage);

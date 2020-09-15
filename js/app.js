@@ -148,11 +148,10 @@ function initialDeal() {
 // if player hits
 function playerHit(event) {//eslint-disable-line
   if (player.handTotal < 21) {
-    handHistory('Player', 'hits');
     getCard(player, playerCards);
   }
   if (player.handTotal > 21) {
-    handHistory('Player', 'busts');
+    handHistory('Dealer', 'wins');
     calcTotals();
   }
   turnTotal(true);
@@ -161,7 +160,6 @@ function playerHit(event) {//eslint-disable-line
 }
 // if player stays
 function playerStay(event) {//eslint-disable-line
-  handHistory('Player', 'stays');
   hitButton.removeEventListener('click', playerHit);
   stayButton.removeEventListener('click', playerStay);
   // dealer turn
@@ -170,10 +168,8 @@ function playerStay(event) {//eslint-disable-line
 
   while (dealer.handTotal < 17) {
     getCard(dealer, dealerCards);
-    handHistory('Dealer', 'hits');
   }
   turnTotal(false);
-  handHistory('Dealer', 'stays');
   calcTotals();
 }
 
@@ -194,8 +190,8 @@ function playerStay(event) {//eslint-disable-line
     console.log(dealer.handTotal);
     console.log(player.handTotal);
   }
-  playerInfo()
-  handHistory('Player', 'bets');
+  playerInfo();
+  handHistory(playerName, 'bets');
 }
 
 // call this function after all the stuff happens to calculate winner and new bank roll
@@ -205,17 +201,17 @@ function calcTotals() {
     stayButton.removeEventListener('click', playerStay);
   } else if (dealer.handTotal > 21) {
     player.bankroll += bet * 2;
-    handHistory('Player', 'wins');
+    handHistory(playerName, 'wins');
   } else if (player.handTotal === dealer.handTotal) {
-    handHistory('Player', 'pushes');
+    handHistory(playerName, 'pushes');
     player.bankroll += bet;
   } else if (player.handTotal === 21 && player.handArray.length === 2) {
-    handHistory('Player', 'BlackJack!');
+    handHistory(playerName, 'BlackJack!');
     player.bankroll += bet * 3.5;
     // next turn
   } else if (player.handTotal > dealer.handTotal) {
     player.bankroll += bet * 2;
-    handHistory('Player', 'wins');
+    handHistory(playerName, 'wins');
   } else {
     handHistory('Dealer', 'wins');
   }
@@ -226,6 +222,8 @@ function nextTurn() {
   // local storage bankroll //
   betButton.addEventListener('submit', playerBet);
   player.turnsPlayed++;
+  playerSave = JSON.stringify(player);
+  localStorage.setItem(playerName, playerSave);
   playerInfo();
 }
 
@@ -260,7 +258,17 @@ function playerInfo(){
 //function to output hand history to the DOM
 function handHistory(target, action){
   var historyLine = document.createElement('li');
-  historyLine.innerHTML = `${target} ${action}`;
+  if (action === 'bets'){
+    historyLine.innerHTML = `${target} ${action} -${bet}`;
+  } else if (action === 'wins' && target==='Dealer'){
+    historyLine.innerHTML = `${target} ${action} -${bet}`;
+  } else if (action === 'wins'){
+    historyLine.innerHTML = `${target} ${action} +${bet*2}`;
+  } else if (action === 'pushes'){
+    historyLine.innerHTML = `${target} ${action} +${bet}`;
+  } else if (action === 'BlackJack!'){
+    historyLine.innerHTML = `${action} +${bet*3.5}`;
+  }
   historyTab.insertAdjacentElement('afterbegin', historyLine);
 }
 
