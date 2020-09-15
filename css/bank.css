@@ -61,7 +61,7 @@ li  {
 } 
 
 table {
-  margin: 20px auto;
+  margin: 20px auto 0px auto;
   background: rgba(255, 255, 255, .4);
 }
 table th {
@@ -77,6 +77,16 @@ table td {
   font-size: 25px;
   color: #1b0303;
 }
+
+.removebutton {
+  background: #a03333;
+  color: white;
+  
+}
+.removebutton:hover {
+  cursor: pointer;
+}
+
  main > div:first-child img {
    width: 100%;
  }
