@@ -89,9 +89,7 @@ function getCard(target, targetEl) {
   }
   appendCard(card, targetEl);
   playerSave = JSON.stringify(player);
-  // dealerSave = JSON.stringify(dealer);
   localStorage.setItem(playerName, playerSave);
-  // localStorage.setItem('dealer', dealerSave);
 }
 
 //Each cardContainer has three elements used in CSS animation
@@ -225,6 +223,15 @@ function nextTurn() {
   playerSave = JSON.stringify(player);
   localStorage.setItem(playerName, playerSave);
   playerInfo();
+  if (player.bankroll <= 0){
+    setTimeout(function(){
+      player.bankroll = 100;
+      alert(`Well now ${playerName}, you've run out of chips.  Here are 100 more on us!`);
+      playerInfo();
+    }, 1000);
+    playerSave = JSON.stringify(player);
+    localStorage.setItem(playerName, playerSave);
+  }
 }
 
 // picks two random cards and switches their spots 1000 times
