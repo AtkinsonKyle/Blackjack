@@ -207,13 +207,8 @@ function calcTotals() {
     handHistory(playerName, 'pushes');
     player.bankroll += bet;
   } else if (player.handTotal === 21 && player.handArray.length === 2) {
-
     player.bankroll += bet * 2.5;
-
     handHistory(playerName, 'BlackJack!');
-    player.bankroll += bet * 3.5;
-
-    // next turn
   } else if (player.handTotal > dealer.handTotal) {
     player.bankroll += bet * 2;
     handHistory(playerName, 'wins');
@@ -243,7 +238,6 @@ function shuffle() {
   }
 }
 
-
 function controlSong() {
   var targetElement = document.getElementById('007');
   targetElement.volume = .5;
@@ -259,7 +253,6 @@ function handleToggle() {
     song.pause();
   }
 }
-
 controlSong();
 
 function controlSong2() {
@@ -268,7 +261,7 @@ function controlSong2() {
 }
 
 document.getElementById('Elevator').addEventListener('click', handleToggle2);
-controlSong.removeEventListener('click', handleToggle);
+// controlSong.removeEventListener('click', handleToggle);
 function handleToggle2() {
   var song = document.getElementById('instrumental');
   if (song.paused) {
@@ -277,7 +270,6 @@ function handleToggle2() {
     song.pause();
   }
 }
-
 controlSong2();
 
 // function to output the totals of the player and dealer hand to the DOM
@@ -289,7 +281,6 @@ function turnTotal(hideHand){
   }
   handTotalTracker.children[1].textContent = player.handTotal;
 }
-
 
 //function to write the player info to the DOM
 function playerInfo(){
@@ -304,13 +295,13 @@ function handHistory(target, action){
   if (action === 'bets'){
     historyLine.innerHTML = `${target} ${action} -${bet}`;
   } else if (action === 'wins' && target==='Dealer'){
-    historyLine.innerHTML = `${target} ${action} -${bet}`;
+    historyLine.innerHTML = `${target} ${action}`;
   } else if (action === 'wins'){
     historyLine.innerHTML = `${target} ${action} +${bet*2}`;
   } else if (action === 'pushes'){
     historyLine.innerHTML = `${target} ${action} +${bet}`;
   } else if (action === 'BlackJack!'){
-    historyLine.innerHTML = `${action} +${bet*3.5}`;
+    historyLine.innerHTML = `${action} +${bet*2.5}`;
   }
   historyTab.insertAdjacentElement('afterbegin', historyLine);
 }

@@ -3,7 +3,7 @@
 var table = document.getElementById('scoreboard');
 
 function makeHeaders(){
-  var headersArray = ['Player Name', 'Bank Roll', 'Rounds'];
+  var headersArray = [' Player Name ', 'Bank Roll', 'Hands Played'];
   var trEl = document.createElement('tr');
   for ( var j = 0; j < headersArray.length; j++){
     appendElement('th', headersArray[j], trEl);
