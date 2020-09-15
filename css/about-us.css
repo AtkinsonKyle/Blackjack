@@ -95,7 +95,7 @@ article {
   font-family: sans-serif;
   border: #D95336 2px solid;
   border-radius: 25px;
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, .5);
   padding: 10px;
   color: black;
   display: inline-flex;
@@ -104,11 +104,17 @@ article {
 
 article img {
   width: 200px;
-  height: 200px;
+	height: 200px;
+	border: 1px solid black;
+	border-radius: 10px;
 }
 
 p {
-  font-size: 20px;
+	font-size: 20px;
+	text-align: left;
+	text-indent: 15px;
+	padding: 5px;
+	margin-right: 10px;
 }
 
 main > div:first-child img {
