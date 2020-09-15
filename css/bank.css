@@ -63,6 +63,7 @@ li  {
 table {
   margin: 20px auto 0px auto;
   background: rgba(255, 255, 255, .4);
+  z-index: 1;
 }
 table th {
   padding: 5px 10px;
@@ -86,18 +87,23 @@ table td {
 .removebutton:hover {
   cursor: pointer;
 }
+main  {
+  position: relative;
+}
 
  main > div:first-child img {
    width: 100%;
  }
- /* main > div:last-child {
+ main > div:last-child {
    width: 100%;
    position: absolute;
+   bottom: -30px;
+   left: 0px;
+   z-index: 0;
  }
  main > div:last-child img {
    width: 100%;
-   position: absolute;
- } */
+ }
 
 footer {
   text-align: center;  
@@ -108,7 +114,7 @@ footer {
   background-image: url("/images/felt.jpg"); 
   color: #D95336; 
   width: 960px;
-  margin: 10px auto;
+  margin: 50px auto;
   border: solid 10px black;
   border-radius: 25px;
 }

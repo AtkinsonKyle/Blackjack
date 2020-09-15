@@ -267,7 +267,7 @@ function handHistory(target, action){
   } else if (action === 'pushes'){
     historyLine.innerHTML = `${target} ${action} +${bet}`;
   } else if (action === 'BlackJack!'){
-    historyLine.innerHTML = `${action} +${bet*3.5}`;
+    historyLine.innerHTML = `${action} +${bet*2.5}`;
   }
   historyTab.insertAdjacentElement('afterbegin', historyLine);
 }
