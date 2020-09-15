@@ -176,10 +176,6 @@ function playerStay(event) {//eslint-disable-line
 // player bet, initial bet is hard wired at 5 until
 
 function playerBet(event) { //eslint-disable-line  
-  console.log('hello');
-
-  function playerBet(event) { //eslint-disable-line  
-
   event.preventDefault();
   bet = parseInt(event.target.betamount.value);
   if (bet < 5){
