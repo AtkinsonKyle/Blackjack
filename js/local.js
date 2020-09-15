@@ -3,7 +3,7 @@
 var table = document.getElementById('scoreboard');
 
 function makeHeaders(){
-  var headersArray = [' Player Name ', 'Bank Roll', 'Hands Played'];
+  var headersArray = ['Player Name', 'Bank Roll', 'Hands Played'];
   var trEl = document.createElement('tr');
   for ( var j = 0; j < headersArray.length; j++){
     appendElement('th', headersArray[j], trEl);
@@ -20,7 +20,7 @@ function callStorage(){
       i = keys.length;
     while (i--) {
       var trEl = document.createElement('tr');
-      // values.push(JSON.parse(localStorage.getItem(keys[i])));
+      // loop through the keys in local storage and retrieve their data
       var tempObject = JSON.parse(localStorage.getItem(keys[i]));
       appendElement('td', tempObject.name, trEl);
       appendElement('td', tempObject.bankroll, trEl);
@@ -46,7 +46,6 @@ function removeStorage(event){
   if (event.target === event.target.parentElement.children[3]){
   // This looks for the name at the beginning of the row clicked
     var removeMe = event.target.parentElement.children[0].textContent;
-    console.log(removeMe);
     // and then removes it from local storage
     localStorage.removeItem(removeMe);
     // Clear the table and call the functions to rewrite it with the new local storage data
