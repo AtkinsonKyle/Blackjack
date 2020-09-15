@@ -10,6 +10,7 @@ main {
 	margin: 20px auto;
 	background-image: url("/images/about-background-mid.jpg");
 	background-size: contain;
+	position: relative;
 }
 
 header {
@@ -61,7 +62,7 @@ footer {
   background-image: url("/images/felt.jpg"); 
   color: #D95336; 
   width: 960px;
-  margin: 10px auto;
+  margin: 50px auto;
   border: solid 10px black;
   border-radius: 25px;
 }
@@ -101,13 +102,27 @@ article {
   width: 80%;
 }
 
-img {
+article img {
   width: 200px;
   height: 200px;
 }
 
 p {
   font-size: 20px;
+}
+
+main > div:first-child img {
+	width: 100%;
+}
+main > div:last-child {
+	width: 100%;
+	position: absolute;
+	bottom: -30px;
+	left: 0px;
+	z-index: 0;
+}
+main > div:last-child img {
+	width: 100%;
 }
 
 footer {
