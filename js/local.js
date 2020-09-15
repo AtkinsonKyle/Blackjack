@@ -43,15 +43,17 @@ function appendElement(child, content, parent){
 // Event handler that removes a player from storage by getting the name of the key associated with the X on the line clicked.
 function removeStorage(event){
   event.preventDefault();
+  if (event.target === event.target.parentElement.children[3]){
   // This looks for the name at the beginning of the row clicked
-  var removeMe = event.target.parentElement.children[0].textContent;
-  console.log(removeMe);
-  // and then removes it from local storage
-  localStorage.removeItem(removeMe);
-  // Clear the table and call the functions to rewrite it with the new local storage data
-  table.innerHTML = '';
-  makeHeaders();
-  callStorage();
+    var removeMe = event.target.parentElement.children[0].textContent;
+    console.log(removeMe);
+    // and then removes it from local storage
+    localStorage.removeItem(removeMe);
+    // Clear the table and call the functions to rewrite it with the new local storage data
+    table.innerHTML = '';
+    makeHeaders();
+    callStorage();
+  }
 }
 
 table.addEventListener('click', removeStorage);
