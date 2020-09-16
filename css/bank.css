@@ -12,6 +12,7 @@ main {
   background-size: cover;
   background-position: center;
   padding-bottom: 20px;
+  position: relative;
 }
  main > section > h2 {
    font-family: 'Rye', cursive;
@@ -34,7 +35,7 @@ header {
 h1 {
   font-family: 'Rye', cursive;
   font-size: 50px;
-	color: red;    
+	color: #D95336;    
 	text-align: center; 
   text-shadow: 10px 10px 20px black;
 	padding: 5px;
@@ -89,9 +90,6 @@ table td {
 }
 .removebutton:hover {
   cursor: pointer;
-}
-main  {
-  position: relative;
 }
 
  main > div:first-child img {
