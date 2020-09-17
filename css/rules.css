@@ -1,6 +1,6 @@
 body {
 	margin: 10px auto 10px auto; 
-	background-image: url("/images/game-page/game-page-background.jpg"); 
+	background-image: url("./../images/game-page/game-page-background.jpg"); 
 	background-size: cover;
 	text-align: center;
 }
@@ -8,7 +8,7 @@ body {
 main {
   width: 960px;
 	margin: 20px auto;
-	background-image: url("/images/about-background-mid.jpg");
+	background-image: url("./../images/about-background-mid.jpg");
   background-size: contain;
   background-position: center;
   padding-bottom: 20px;
@@ -26,7 +26,7 @@ header {
   width: 960px;
   height: 170px;
 	margin: 10px auto;
-	background-image: url("/images/felt.jpg"); 
+	background-image: url("./../images/felt.jpg"); 
 	background-size: cover;
 	border: solid 10px black;
 	border-radius: 25px;
@@ -116,7 +116,7 @@ footer {
   font-weight: 500; 
   font-size: 15px;
   font-family: 'Fredericka the Great', cursive;
-  background-image: url("/images/felt.jpg"); 
+  background-image: url("./../images/felt.jpg"); 
   color: #D95336; 
   width: 960px;
   margin: 50px auto;
