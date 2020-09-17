@@ -12,6 +12,7 @@ main {
   background-size: contain;
   background-position: center;
   padding-bottom: 20px;
+  position: relative;
 }
  main > section > h2 {
    font-family: 'Rye', cursive;
@@ -34,7 +35,7 @@ header {
 h1 {
   font-family: 'Rye', cursive;
   font-size: 50px;
-	color: red;    
+	color: #D95336;    
 	text-align: center; 
   text-shadow: 10px 10px 20px black;
 	padding: 5px;
@@ -88,11 +89,25 @@ article p {
   font-family: sans-serif;
   border: #D95336 2px solid;
   border-radius: 25px;
-  background-color: rgba(255, 255, 255, .4);
+  background-color: rgba(255, 255, 255, .6);
   padding: 10px;
   color: black;
   display: inline-flex;
   width: 80%;
+}
+
+main > div:first-child img {
+  width: 100%;
+}
+main > div:last-child {
+  width: 100%;
+  position: absolute;
+  bottom: -30px;
+  left: 0px;
+  z-index: 0;
+}
+main > div:last-child img {
+  width: 100%;
 }
 
 footer {
@@ -104,7 +119,7 @@ footer {
   background-image: url("/images/felt.jpg"); 
   color: #D95336; 
   width: 960px;
-  margin: 10px auto;
+  margin: 50px auto;
   border: solid 10px black;
   border-radius: 25px;
 }

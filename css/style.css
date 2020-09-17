@@ -12,7 +12,7 @@ main {
 	background: url("/images/about-background-mid.jpg"); 
 	background-size: cover;
 	background-position: center;
-
+	position: relative;
 }
 
 header {
@@ -90,28 +90,13 @@ footer {
 		font-family: 'Fredericka the Great', cursive;
 		background-image: url("/images/felt.jpg"); 
 		padding: 5px;
-		color: red; 
+		color: #D95336; 
 		width: 960px;
-		margin: 10px auto;
+		margin: 50px auto;
 		border: solid 10px black;
 		border-radius: 25px;
 	}
 	
-section div {
-	padding: 20px;
-	font-size: 30px;  
-	text-align: center; 
-	font-weight: 900; 
-	font-family: 'Josefin Slab', serif;
-} 
-
-div img {
-		display: block; 
-		margin-right: auto; 
-		margin-left: auto; 
-		width: 300px;
-  	height: 450px;
-	}
 section > img {
 	margin-right: auto; 
 	margin-left: auto; 
@@ -119,7 +104,8 @@ section > img {
 	height: 300px;
 	/* padding: 40px; */
 } 
-main > section:first-child{
+
+main > section:nth-child(2){
 	border: 2px solid black;
 	padding: 10px;
 	border-radius: 25px;
@@ -129,6 +115,22 @@ main > section:first-child{
 	margin: 20px auto;
 }
 
+main > div:first-child img {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+main > div:last-child {
+	width: 100%;
+	position: absolute;
+	bottom: -40px;
+	left: 0px;
+	z-index: 0;
+}
+main > div:last-child img {
+	width: 100%;
+}
 
 a{
 	text-decoration: none;
