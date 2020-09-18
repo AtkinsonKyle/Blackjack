@@ -124,6 +124,9 @@ function appendCard(card, targetEl) {
 function flipCard(targetEl) {
   // console.log(targetEl);
   targetEl.classList.toggle('flipme');
+  setTimeout(function(){
+    targetEl.classList.toggle('turnoff');
+  }, 500);
 }
 
 // Resets all of the turn variables and deals the initial four cards
